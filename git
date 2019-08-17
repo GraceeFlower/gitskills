@@ -1,3 +1,5 @@
+*** create add & commit
+*** 创建一个文件并把它添加上传到远程remote
 $ vi readme.txt
 $ git add readme
 fatal: pathspec 'readme' did not match any files
@@ -6,6 +8,7 @@ $ git commit -m "wrote a readme file"
 my first readme will be changed!
 
 *** Please tell me who you are.
+*** 绑定自己的账号
 
 Run
 
@@ -15,13 +18,15 @@ Run
 to set your account's default identity.
 Omit --global to set the identity only in this repository.
 
-fatal: unable to auto-detect email address (got 'kfl@localhost.(none)')
-$ git config --global user.email "1491644103@qq.com"
+fatal: unable to auto-detect email address (got 'guoer@localhost.(none)')
+$ git config --global user.email "149*******@qq.com"
 $ git commit -m "wrote a readme file"
 [master (root-commit) 47d4449] wrote a readme file
  1 file changed, 2 insertions(+)
  create mode 100644 readme.txt
 
+*** git status 显示状态 例如修改(modified)了的文件等
+*** git diff 显示differences 可看出具体的不一样的部分
 $ ls
 readme.txt
 $ vi readme.txt
@@ -59,40 +64,36 @@ $ git status
 On branch master
 nothing to commit, working tree clean
 
+*** vi编辑 cat显示内容 rm删除文件
 $ vi readme.txt
 $ cat readme.txt
 my first readme will be changed!
 before add
 
+*** git checkout 
 $ git checkout -- readme.txt
 $ cat readme.txt
 my first readme will be changed!
-
 $ vi readme.txt
 $ cat readme.txt
 my first readme will be changed!
 before commit
-
 $ git checkout -- readme.txt
 $ cat readme.txt
 my first readme will be changed!
 before commit
-
 $ git reset HEAD readme.txt
 Unstaged changes after reset:
 M	readme.txt
 $ cat readme.txt
 my first readme will be changed!
 before commit
-
 $ git checkout -- readme.txt
 $ cat readme.txt
 my first readme will be changed!
-
 $ git status
 On branch master
 nothing to commit, working tree clean
-
 $ vi test.txt
 $ git add test.txt
 $ git commit -m "create a test"
@@ -164,21 +165,19 @@ $ git commit -m "delete test"
 $ git checkout -- test.txt
 error: pathspec 'test.txt' did not match any file(s) known to git
 
+***创建github密钥
 $  ssh-keygen -t rsa -C "Your e-mail here"
 
 $ cd ~
 $ ls
-Desktop			Movies			WebstormProjects
-Documents		Music			mygit
-Downloads		Pictures		node_modules
-Library			Public			package-lock.json
-$ cd .ssh
+Desktop		mygit
 $ ls
 id_rsa		id_rsa.pub
 $ cat id_rsa.pub
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABA...(This's what you'll see here, and copy it~)
 
-
+*** 绑定远程地址 即自己的GitHub文件夹
+*** git push/clone把自己的本地文件推上(push)GitHub或者从上面克隆(clone)代码
 $ git remote add origin https://github.com/GraceeFlower/mygit.git
   (if you typed incorrectly, try using 'git remote rm origin' to cancel~)
   (这要是打错了地址可以用git remote rm origin撤销)
@@ -217,6 +216,9 @@ $ cd gitskills
 $ ls
 README.md
 
+*** git checkout切换分支
+*** git branch显示分支
+*** git merge合并分支
 $ git checkout -b dev
    (等价于
 	git branch dev创建分支
@@ -236,33 +238,36 @@ Deleted branch dev (was e8494b3).
 $ git branch
 * master
 
-kflmatoMacBook-Air% git checkout master
+$git checkout master
 Switched to branch 'master'
 Your branch is up to date with 'origin/master'.
-kflmatoMacBook-Air% git tag v1.0
-kflmatoMacBook-Air% git tag
+
+*** git tag给自己的命令加个昵称(缩写)吧～
+*** git log查看分支图
+$git tag v1.0
+$git tag
 v1.0
-kflmatoMacBook-Air% git log --pretty=oneline --abbrev-commit
+$git log --pretty=oneline --abbrev-commit
 e8494b3 (HEAD -> master, tag: v1.0, origin/master, origin/HEAD) Initial commit
 
-kflmatoMacBook-Air% git checkout dev
+$git checkout dev
 Switched to branch 'dev'
-kflmatoMacBook-Air% git log --pretty=oneline --abbrev-commit
+$git log --pretty=oneline --abbrev-commit
 772e6cc (HEAD -> dev, origin/dev) dev
 e8494b3 (tag: v1.0, origin/master, origin/HEAD, master) Initial commit
-kflmatoMacBook-Air% git tag -a v0.9 -m "version 0.9" 772e6cc
-kflmatoMacBook-Air% git tag
+$git tag -a v0.9 -m "version 0.9" 772e6cc
+$git tag
 v0.9
 v1.0
-kflmatoMacBook-Air% git show v0.9
+$git show v0.9
 tag v0.9
-Tagger: kfl <1491644103@qq.com>
+Tagger: ... <149***@qq.com>
 Date:   Tue Aug 13 17:24:17 2019 +0800
 
 version 0.9
 
 commit 772e6cc1d1ca573f1a1a69b37dad2e3ee25d9464 (HEAD -> dev, tag: v0.9, origin/dev)
-Author: kfl <1491644103@qq.com>
+Author: ... <149***@qq.com>
 Date:   Tue Aug 13 16:52:53 2019 +0800
 
     dev
@@ -274,15 +279,15 @@ index 0000000..9c2ed85
 +++ b/README.txt
 @@ -0,0 +1 @@
 +This is the first dev!
-kflmatoMacBook-Air% git tag -d v0.9
+$git tag -d v0.9
 Deleted tag 'v0.9' (was 4adf610)
-kflmatoMacBook-Air% git tag
+$git tag
 v1.0
-kflmatoMacBook-Air% git push origin v1.0
+$git push origin v1.0
 Total 0 (delta 0), reused 0 (delta 0)
 To github.com:GraceeFlower/gitskills.git
  * [new tag]         v1.0 -> v1.0
-kflmatoMacBook-Air% git push origin :refs/tags/v1.0
+$git push origin :refs/tags/v1.0
 To github.com:GraceeFlower/gitskills.git
  - [deleted]         v1.0
 
