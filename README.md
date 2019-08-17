@@ -1,6 +1,28 @@
 # gitskills
 
-Git学习笔记Loading...
+Git Learning Notes Loading...
+
+Git is the most advanced distributed control system in the world.
+
+Project Management Suitable for Multi-person Cooperation.
+
+It can be used to link local and remote Libraries.
+
+And each machine is a complete individual (with a whole set of resources).
+
+Push, push, add, commit and other commands are used to realize the functions of pull, push, modify and so on.
+
+It also provides a way to resolve conflicts, such as when multiple people modify a file at the same time.
+
+In the GIT file, I followed Liao Xuefeng's official course.
+
+And after reading some of Git's official documents, we will continue to study and modify them in depth.
+
+Attach the official document address: http://git-scm.com.
+
+And git-cheatsheet:) attached by Liao Dada's friends.
+
+
 
 Git是世界上最先进的分布式控制系统
 
