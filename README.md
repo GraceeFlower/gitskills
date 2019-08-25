@@ -1,6 +1,6 @@
 # gitskills
 
-Git Learning Notes Loading...
+- Git Learning Notes Loading...
 
 Git is the most advanced distributed control system in the world.
 
@@ -24,7 +24,7 @@ And git-cheatsheet:) attached by Liao Dada's friends.
 
 
 
-Git是世界上最先进的分布式控制系统
+- Git是世界上最先进的分布式控制系统
 
 非常适合多人合作的项目管理
 
